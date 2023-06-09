@@ -1,27 +1,26 @@
 pipeline {
-    agent { label 'docker' }
+    agent { label 'node' }
     triggers { 
-        pollSCM('* 23 * * 1-5')
+        pollSCM('* * * * *')
     }
     stages {
         stage('vcs') {
             steps {
-                git url: 'https://github.com/khajadevopsmarch23/StudentCoursesRestAPI',
+                git url: 'https://github.com/CAESAR269/StudentCoursesRestAPI.git',
                     branch: 'sprint_1_release'
             }
         }
         stage('build') {
             steps {
-                sh 'docker image build -t shaikkhajaibrahim/spc:latest .'
+                sh 'docker image build -t caesar269/src:latest .'
             }
         }
-        stage('scan and push') {
+        stage('push') {
             steps {
-                sh 'echo docker scan shaikkhajaibrahim/spc:latest'
-                sh 'docker image push shaikkhajaibrahim/spc:latest'
-            }
+                sh 'docker image push caesar269/src:latest'
+           }
         }
-        stage('deploy to st') {
+        stage('deploy') {
             steps {
                 sh 'kubectl apply -f ./K8s/mysql-aws.yml'
                 sh 'kubectl apply -f ./K8s/flask-aws.yml'
@@ -30,5 +29,4 @@ pipeline {
             }
         }
     }
-
 }
