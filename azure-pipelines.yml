@@ -4,7 +4,7 @@
 # https://aka.ms/yaml
 
 trigger:
-- master
+- sprint_1_release
 
 pool:
   name: Az
