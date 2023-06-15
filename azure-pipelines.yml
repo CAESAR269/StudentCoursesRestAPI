@@ -10,11 +10,6 @@ pool:
   name: Az
 
 steps:
-- task: Bash@3
+- task: CmdLine@2
   inputs:
-    targetType: 'inline'
-    script: |
-      kubectl apply -f /home/udai1729/myagent/_work/**/mysql-aws.yml
-      kubectl apply -f /home/udai1729/myagent/_work/**/flask-aws.yml
-      sleep 10s
-      kubectl get svc
+    script: 'cd _StudentCoursesRestAPI | ls -l'
