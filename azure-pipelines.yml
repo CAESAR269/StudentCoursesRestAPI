@@ -5,7 +5,11 @@ pool:
   name: Az
 
 steps:
-- task: CmdLine@2
+- task: Bash@3
   inputs:
+    targetType: 'inline'
     script: |
-      cd _StudentCoursesRestAPI/K8s | ls -al    
+      kubectl apply -f ./K8s/mysql-aws.yml
+      kubectl apply -f ./K8s/flask-aws.yml
+      sleep 10s
+      kubectl get svc
