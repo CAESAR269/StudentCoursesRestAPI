@@ -10,19 +10,11 @@ pool:
   name: Az
 
 steps:
-- task: Docker@2
-  inputs:
-    containerRegistry: 'Docker'
-    repository: 'caesar269 / src'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: 'latest'
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
     script: |
-      kubectl apply -f '$(System.DefaultWorkingDirectory)/**/*mysql-aws.yml'
-      kubectl apply -f '$(System.DefaultWorkingDirectory)/**/*flask-aws.yml'
+      kubectl apply -f $(System.DefaultWorkingDirectory)/**/*mysql-aws.yml
+      kubectl apply -f $(System.DefaultWorkingDirectory)/**/*flask-aws.yml
       sleep 10s
       kubectl get svc
