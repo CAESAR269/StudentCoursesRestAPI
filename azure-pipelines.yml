@@ -17,4 +17,4 @@ steps:
       kubectl apply -f mysql-aws.yml
       kubectl apply -f flask-aws.yml
       sleep 10s
-      kubectl get svc'
+      kubectl get svc
