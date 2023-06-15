@@ -12,4 +12,9 @@ pool:
 steps:
 - task: CmdLine@2
   inputs:
-    script: 'cd _StudentCoursesRestAPI/K8s/ | ls -l'
+    script: |
+      cd _StudentCoursesRestAPI/K8s/
+      kubectl apply -f mysql-aws.yml
+      kubectl apply -f  flask-aws.yml
+      sleep 10s
+      kubectl get svc'
