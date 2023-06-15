@@ -10,4 +10,10 @@ pool:
   name: Az
 
 steps:
-- script: printenv
+- task: Docker@2
+  inputs:
+    containerRegistry: 'Docker'
+    repository: 'caesar269 / src'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'latest'
