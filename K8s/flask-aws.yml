@@ -34,7 +34,7 @@ spec:
         app: studentscourse
     spec:
       containers:
-        - image: caesar269/src:latest
+        - image: shaikkhajaibrahim/spc:latest
           name: studentscourse
           env:
             - name: MYSQL_SERVER
