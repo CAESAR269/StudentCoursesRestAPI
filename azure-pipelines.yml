@@ -14,7 +14,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      kubectl apply -f $(System.DefaultWorkingDirectory)/**/*mysql-aws.yml
-      kubectl apply -f $(System.DefaultWorkingDirectory)/**/*flask-aws.yml
+      kubectl apply -f /home/udai1729/myagent/_work/**/mysql-aws.yml
+      kubectl apply -f /home/udai1729/myagent/_work/**/flask-aws.yml
       sleep 10s
       kubectl get svc
