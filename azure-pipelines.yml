@@ -22,7 +22,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      kubectl apply -f '$(System.ArtifactsDirectory/K8s/mysql-aws.yml)'
-      kubectl apply -f '$(System.ArtifactsDirectory)/K8s/flask-aws.yml)'
+      kubectl apply -f '$(System.System.DefaultWorkingDirectory)/**/*mysql-aws.yml'
+      kubectl apply -f '$(System.System.DefaultWorkingDirectory)/**/*flask-aws.yml'
       sleep 10s
       kubectl get svc
