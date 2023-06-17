@@ -12,12 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker image build -t caesar269/src:latest .'
+                sh 'docker build -t us-central1-docker.pkg.dev/crypto-talon-365110/tsar6/src:latest .'
             }
         }
         stage('push') {
             steps {
-                sh 'docker image push caesar269/src:latest'
+                sh 'docker image push us-central1-docker.pkg.dev/crypto-talon-365110/tsar6/src:latest'
            }
         }
         stage('deploy') {
