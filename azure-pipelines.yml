@@ -2,9 +2,20 @@ trigger:
 - sprint_1_release
 
 pool:
-  name: Az
+  name: Az-Pool
 
 steps:
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: 'docker build -t us-central1-docker.pkg.dev/crypto-talon-365110/tsar7/src:latest .'
+  displayName: build
+- task: Bash@3
+  inputs:
+    targetType: 'inline'
+    script: |
+      docker push us-central1-docker.pkg.dev/crypto-talon-365110/tsar7/src:latest
+  displayName: push
 - task: Bash@3
   inputs:
     targetType: 'inline'
@@ -13,3 +24,4 @@ steps:
       kubectl apply -f ./K8s/flask-aws.yml
       sleep 10s
       kubectl get svc
+  displayName: deploy
