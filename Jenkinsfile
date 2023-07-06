@@ -12,12 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest .'
+                sh 'docker build -t 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:1 .'
             }
         }
         stage('push') {
             steps {
-                sh 'docker push 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest'
+                sh 'docker push 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:1'
            }
         }
         stage('deploy') {
