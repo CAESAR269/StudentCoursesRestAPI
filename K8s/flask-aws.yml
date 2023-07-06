@@ -34,7 +34,7 @@ spec:
         app: studentscourse
     spec:
       containers:
-        - image: us-central1-docker.pkg.dev/crypto-talon-365110/tsar7/src:latest
+        - image: 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest
           name: studentscourse
           env:
             - name: MYSQL_SERVER
