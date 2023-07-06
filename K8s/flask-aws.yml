@@ -34,7 +34,7 @@ spec:
         app: studentscourse
     spec:
       containers:
-        - image: 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest
+        - image: 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:1
           name: studentscourse
           env:
             - name: MYSQL_SERVER
