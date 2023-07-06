@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'node' }
+    agent { label 'Docker' }
     triggers { 
         pollSCM('* * * * *')
     }
@@ -12,12 +12,12 @@ pipeline {
         }
         stage('build') {
             steps {
-                sh 'docker build -t us-central1-docker.pkg.dev/crypto-talon-365110/tsar6/src:latest .'
+                sh 'docker build -t 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest .'
             }
         }
         stage('push') {
             steps {
-                sh 'docker image push us-central1-docker.pkg.dev/crypto-talon-365110/tsar6/src:latest'
+                sh 'docker push 349431158401.dkr.ecr.ap-south-1.amazonaws.com/scr:latest'
            }
         }
         stage('deploy') {
